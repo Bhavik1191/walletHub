@@ -7,4 +7,12 @@
             <class name ="com.facebook.FacebookTest"/>
         </classes>
     </test>
+    <test name="WalletHub Test">
+        <parameter name ="email" value="email"/>
+        <parameter name ="password" value="password"/>
+        <classes>
+            <class name ="com.wallethub.WallethubTest"/>
+        </classes>
+    </test>
+
 </suite>

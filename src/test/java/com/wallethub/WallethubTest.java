@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class WallethubTest {
@@ -18,15 +19,19 @@ public class WallethubTest {
     LoginPage loginPage;
     ReviewPage reviewPage;
 
+
+
+
     String review = "Wallethub experience is very smooth and very user friendly. I will recommend this health insureance to my friends and family. Wish a very good luck and good wishes to wallet hub product and team behind it.";
 
+    @Parameters({"email","password"})
     @BeforeTest
-    public void setup()
+    public void setup(String email, String password)
     {
         driver = DriverFactory.init_driver("chrome");
         driver.get("https://wallethub.com/login");
         loginPage = new LoginPage(driver);
-        loginPage.login("","");
+        loginPage.login(email,password);
 
     }
 
