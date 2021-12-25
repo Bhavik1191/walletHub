@@ -1,12 +1,11 @@
 package com.facebook;
 
+import com.DriverFactory;
 import com.facebook.pages.HomePage;
 import com.facebook.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class FacebookTest {
 
@@ -19,15 +18,15 @@ public class FacebookTest {
         driver = DriverFactory.init_driver("chrome");
     }
 
+    @Parameters({"email","password"})
     @Test
-    public void faceBookLogin()
+    public void faceBookLogin(String email, String password)
     {
         System.out.println("Navigating to Facebook.com");
         driver.get("https://www.facebook.com/");
 
-
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginToFb("bhavik@ost.com", "facebook@1234");
+        loginPage.loginToFb(email, password);
 
         HomePage homePage = new HomePage(driver);
         try{
@@ -42,7 +41,6 @@ public class FacebookTest {
 
         homePage.createPost("Hello world");
     }
-
 
     @AfterTest
     public void tearDown()

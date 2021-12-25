@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium_Framework" parllel="tests" thread-count="3">
+    <test name="Facebook Test">
+        <parameter name ="email" value="email"/>
+        <parameter name ="password" value="password"/>
+        <classes>
+            <class name ="com.facebook.FacebookTest"/>
+        </classes>
+    </test>
+</suite>
